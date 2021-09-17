@@ -1,0 +1,11 @@
+/** With the use of unit(a), we can now implement a function that takes its array 
+* and converts 0 values to 1.
+* 
+* With our unit vector, we can then proceed to invert our unit vector such that all 0's become 1's, and vice versa. 
+* This allows us to add our original array back to itself with only 0's incremented by 1. 
+*/
+non0(a)
+Local a
+Func
+abs(z\unit(a)-1)+a
+EndFunc
