@@ -35,3 +35,4 @@ EndFor
 Return xx                 // Return resulting array
 EndIf                     // ^
 Return x                  // ^
+EndFunc
