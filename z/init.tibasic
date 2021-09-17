@@ -1,0 +1,14 @@
+/** This is a rather useful/important function as it performs the a function that
+* im sure a few high level programmers are familiar with; initializing/allocating an array. 
+* There are moments where you don't necessairly know what elements your array can contain. 
+* You know its size, but not its elements. 
+*
+* This function will take a length argument and generate an array of size A initialized to 
+* undefined. If you wanted the array to be initialized to something else, look at init2.
+* The seq builtin will return a sequence where k is the variable increment from 1 to length a.
+*/
+init(a)
+Func
+Local a,k
+Return seq(undef, k, 1, a)
+EndFunc
