@@ -1,0 +1,13 @@
+/** This is a very important function in that it allows for checking dimension mismatch very quickly 
+* between two lists. I do use the data/list editor and one common problem ive had especially if auto
+* update is on when I accidentally delete an element of the list triggering a dimension mismatch. 
+* Simultaneously adding more entries to a vector also causes the error.
+* 
+* In order to avoid these errors, this will take the two vectors in question and verify they are safe for 
+* operations against by comparing their dimensions.
+*/
+safe(a,b)
+Func
+Local a,b
+Return dim(a)=dim(b)
+EndFunc
