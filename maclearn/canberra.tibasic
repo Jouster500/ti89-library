@@ -1,0 +1,10 @@
+/** Computes the canberra distance between two vectors.
+* Canberra distance is defined as the summation of |v1-v2|/(|v1|+|v2|)
+*/
+Func
+Local a, b
+If z\safe(a,b) Then                               // Validate the arrays are the same size
+Return sum(abs(a-b)/(z\non0(abs(a)+abs(b))))      // Return the canberra distance, replacing a=b=0 entries with a denominator of 1 to return 0 so it doesnt crash sum() with undef.
+EndIf
+Return 0                                          // Return 0 if theres a size mismatch. 
+EndFunc
