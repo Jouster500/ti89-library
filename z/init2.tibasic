@@ -1,0 +1,8 @@
+/** This function is identical to init, except it takes an additional argument b
+* which specifies what the array should be initialized with.
+*/
+init2(a, b)
+Func
+Local a,b,k
+Return seq(b,k,1,a)
+EndFunc
