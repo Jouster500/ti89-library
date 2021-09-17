@@ -1,0 +1,37 @@
+/** This is one of the first heavy weight functions utilizing some of
+* my own created programs to perform the intersection (or 'and') of two lists.
+* The logic is capable of handling duplicates and unsorted lists, (Although it could be potentially
+* faster if sorted.) and returns a list composing of only the elements that are matched.
+*/
+and2(a, b)
+Func
+Local a, b, d1,d2, x, xx, i, ai, bi
+dim(a)->d1:dim(b)->d2     // Sets the lengths of the lists. Useful due to how frequently they are referenced. 
+z\init(min(d1,d2))->x     // This generates a list that is at least the minimum size of either list. No intersection will return a list greater than the size of the smallest list. 
+1->i:1->ai:1->bi          // Initialize increments to 1.
+
+While ai<=d1 and bi<=d2   // Cycle through while both increments are less than their respective dimensions.
+If a[ai]=b[bi] Then       // Check if the elements are equal 
+a[ai]->x[i]               // Store the value into the list. 
+undef->b[bi]              // Replace the value in b with undefined to avoid circular lookups.
+ai+1->ai:i+1->i:1->bi     // Increment counters and reset second list increment.
+Cycle                     // Reset loop
+EndIf
+
+If bi>=d2 Then            // If the b list increment is greater than or equal its size
+ai+1->ai:1->bi            // Increment a list increment, and reset b list increment.
+ElseIf bi<=d2 Then        // Else if b list increment is still less than or equal to d2,
+bi+1->bi                  // Add one to b list increment.
+EndIf
+
+EndWhile
+
+If i<=dim(x) Then         // If our result array increment is less than the allocated dimension of x
+z\init(i-1)->xx           // initialize a new array with the size of i instead.
+For ai, 1, i-1            // Cycle through this new array
+x[ai]->xx[ai]             // Adding the values from respectively from the old array
+EndFor
+
+Return xx                 // Return resulting array
+EndIf                     // ^
+Return x                  // ^
