@@ -1,5 +1,6 @@
 /** Computes the canberra distance between two vectors.
 * Canberra distance is defined as the summation of |v1-v2|/(|v1|+|v2|)
+* Canberra distance is effectively a weighted version of manhatten (taxicab) distance and useful for ranked lists.
 */
 Func
 Local a, b
