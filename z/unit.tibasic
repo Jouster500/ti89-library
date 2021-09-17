@@ -1,0 +1,21 @@
+/** Another important function that takes the value given and converts  it
+* to a (normalized?) vector and converts its values directly to 1 or 0.
+* relative to its scalar distance. IE, {-5, 0, 5} would return {1, 0, 1}
+* Why is this important? Some machine learning functions such as canberra distance
+* have a condition that if the divisor is equal to 0, that returned value should also be 0.
+* But on these calculators, 0/0 yields undefined which wreaks havoc on other builtin functions. 
+* This function is the first step in rectifying this issue by creating a unit vector that indicates
+* non-zero values.
+* 
+* We accomplish this by cleverly making use of the functions ceiling and fpart. 
+* fpart will return a list with only fraction part of its elements returned. 
+* ceiling will of course raise a fraction to the next nearest int. 
+* Since fractions can only be between 1 and 0, the cieling of any fraction will thus become 1.
+* Lastly, since any number, integer or real, times a decimal yields a decimal, alongside that any number
+* times 0 is 0, we can get the absolute value (or square) of a number, multiplying it by a decimal, and
+* apply the above builtins to retreive a vector denoting which elements of a list are not equal to 0.
+*/
+unit(a)
+Local a
+Return ceiling(fPart(a^2*.1))
+EndFunc
