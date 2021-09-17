@@ -1,0 +1,8 @@
+/** A very simple function that converts true/false into 1/0 */
+tf(a)
+Local a
+If a Then
+Return 1
+EndIf
+Return 0
+EndFunc
