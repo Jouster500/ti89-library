@@ -1,0 +1,15 @@
+/**
+* This function calculates the mode of a particular value within a given list. (numbers only)
+* This is accomplished thanks to the nature of division and in part to the non0 and unit functions i developed earlier
+* By taking the number, and dividing it by itself, we acquire a value of 1. Using non0 and unit, we can shift these 
+* values to more favorable ends such that the values that match the the passed value return a 1, and can be calculated by
+* sum().
+*/
+mode(x, y)
+Func
+Local x, y
+If x=0 Then
+Return sum(abs(z\unit(y)-1))  // The scalar unit vector of y - 1 converted to absolute value returns 1's in place of 0's, and 0's in place of all other numbers.
+EndIf
+Return sum(abs(z\unit(y/x-1)-1)) // Any number/number = 1. All other numbers - 1 =\= 0. Perform the reverse changeup to extract the mode of this particular value against the list.
+EndFunc
